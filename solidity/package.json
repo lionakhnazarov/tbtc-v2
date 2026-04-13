@@ -79,11 +79,7 @@
   },
   "resolutions": {
     "ethereumjs-abi": "0.6.8",
-    "eth-sig-util/ethereumjs-abi": "0.6.8",
-    "secp256k1": "4.0.3"
-  },
-  "overrides": {
-    "secp256k1": "4.0.3"
+    "eth-sig-util/ethereumjs-abi": "0.6.8"
   },
   "engines": {
     "node": ">=18.0.0"
