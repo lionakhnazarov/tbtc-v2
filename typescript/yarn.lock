@@ -1623,7 +1623,7 @@ __metadata:
     "@keep-network/tbtc-v2": "npm:development"
     "@mysten/sui": "npm:1.34.0"
     "@solana/spl-token": "npm:0.3.9"
-    "@solana/web3.js": "npm:^1.98.0"
+    "@solana/web3.js": "npm:~1.97.0"
     "@typechain/ethers-v5": "npm:^10.2.0"
     "@types/chai": "npm:^4.2.21"
     "@types/chai-as-promised": "npm:^7.1.4"
@@ -2226,7 +2226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solana/web3.js@npm:^1.32.0, @solana/web3.js@npm:^1.68.0, @solana/web3.js@npm:^1.98.0":
+"@solana/web3.js@npm:^1.32.0, @solana/web3.js@npm:^1.68.0":
   version: 1.98.0
   resolution: "@solana/web3.js@npm:1.98.0"
   dependencies:
@@ -2246,6 +2246,29 @@ __metadata:
     rpc-websockets: "npm:^9.0.2"
     superstruct: "npm:^2.0.2"
   checksum: 10c0/b95b130c347d5499866887b405094b8c9f551b69b6e21bb4fef7f381972f36b22d0c281ce6c2595dc146ec97527ebc524c96e8867dad7e7cd89181e30baf64b7
+  languageName: node
+  linkType: hard
+
+"@solana/web3.js@npm:~1.97.0":
+  version: 1.97.0
+  resolution: "@solana/web3.js@npm:1.97.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    "@noble/curves": "npm:^1.4.2"
+    "@noble/hashes": "npm:^1.4.0"
+    "@solana/buffer-layout": "npm:^4.0.1"
+    agentkeepalive: "npm:^4.5.0"
+    bigint-buffer: "npm:^1.1.5"
+    bn.js: "npm:^5.2.1"
+    borsh: "npm:^0.7.0"
+    bs58: "npm:^4.0.1"
+    buffer: "npm:6.0.3"
+    fast-stable-stringify: "npm:^1.0.0"
+    jayson: "npm:^4.1.1"
+    node-fetch: "npm:^2.7.0"
+    rpc-websockets: "npm:^9.0.2"
+    superstruct: "npm:^2.0.2"
+  checksum: 10c0/d38f4fd9bc918c778ae017eb1e84d2cd87d918532c3128f39c76573671a7587920a810110a653d1d0ccecef3451843ec9e844fd6599cbf4e748c3155c31956f2
   languageName: node
   linkType: hard
 
