@@ -106,10 +106,12 @@
     "typescript": "^5.0.0"
   },
   "resolutions": {
-    "secp256k1": "4.0.3"
+    "secp256k1": "4.0.3",
+    "@solana/web3.js": "1.97.0"
   },
   "overrides": {
-    "secp256k1": "4.0.3"
+    "secp256k1": "4.0.3",
+    "@solana/web3.js": "1.97.0"
   },
   "engines": {
     "node": ">=16"
