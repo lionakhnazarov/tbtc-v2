@@ -11,10 +11,7 @@ apply_one() {
     echo "ERROR: missing $PATCH_SRC"
     exit 1
   fi
-  if [ ! -f "$TARGET" ]; then
-    echo "ERROR: $TARGET not found — run yarn install in tbtc-v2/solidity"
-    exit 1
-  fi
+  mkdir -p "$(dirname "$TARGET")"
   cp "$PATCH_SRC" "$TARGET"
   echo "Applied deploy patch: $TARGET"
 }
