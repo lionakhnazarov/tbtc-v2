@@ -118,11 +118,7 @@ async function main(): Promise<void> {
   const iface = loadWalletRegistryAbi()
   const provider = new ethers.providers.JsonRpcProvider(opts.rpcUrl)
   const wallet = new ethers.Wallet(opts.privateKey, provider)
-  const registry = new ethers.Contract(
-    opts.walletRegistry,
-    iface,
-    wallet
-  )
+  const registry = new ethers.Contract(opts.walletRegistry, iface, wallet)
 
   type DkgResultTuple = {
     submitterMemberIndex: ethers.BigNumber
@@ -223,7 +219,10 @@ async function main(): Promise<void> {
   const head = await provider.getBlockNumber()
 
   console.log("Submitted result at block:", submittedBlock)
-  console.log("resultChallengePeriodLength:", resultChallengePeriodLength.toString())
+  console.log(
+    "resultChallengePeriodLength:",
+    resultChallengePeriodLength.toString()
+  )
   console.log(
     "submitterPrecedencePeriodLength:",
     submitterPrecedencePeriodLength.toString()
@@ -236,8 +235,7 @@ async function main(): Promise<void> {
   console.log("Current block:", head)
 
   const ok =
-    ethers.BigNumber.from(head).gt(anyoneApproveAfter) ||
-    opts.skipTimingCheck
+    ethers.BigNumber.from(head).gt(anyoneApproveAfter) || opts.skipTimingCheck
   if (!ok) {
     const need = anyoneApproveAfter.sub(head).toNumber()
     throw new Error(

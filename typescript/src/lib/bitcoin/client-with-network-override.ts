@@ -35,15 +35,11 @@ export class BitcoinClientWithNetworkOverride implements BitcoinClient {
     return this.delegate.getRawTransaction(transactionHash)
   }
 
-  getTransactionConfirmations(
-    transactionHash: BitcoinTxHash
-  ): Promise<number> {
+  getTransactionConfirmations(transactionHash: BitcoinTxHash): Promise<number> {
     return this.delegate.getTransactionConfirmations(transactionHash)
   }
 
-  getTxHashesForPublicKeyHash(
-    publicKeyHash: Hex
-  ): Promise<BitcoinTxHash[]> {
+  getTxHashesForPublicKeyHash(publicKeyHash: Hex): Promise<BitcoinTxHash[]> {
     return this.delegate.getTxHashesForPublicKeyHash(publicKeyHash)
   }
 
@@ -51,10 +47,7 @@ export class BitcoinClientWithNetworkOverride implements BitcoinClient {
     return this.delegate.latestBlockHeight()
   }
 
-  getHeadersChain(
-    blockHeight: number,
-    chainLength: number
-  ): Promise<Hex> {
+  getHeadersChain(blockHeight: number, chainLength: number): Promise<Hex> {
     return this.delegate.getHeadersChain(blockHeight, chainLength)
   }
 
@@ -62,10 +55,7 @@ export class BitcoinClientWithNetworkOverride implements BitcoinClient {
     transactionHash: BitcoinTxHash,
     blockHeight: number
   ): Promise<BitcoinTxMerkleBranch> {
-    return this.delegate.getTransactionMerkle(
-      transactionHash,
-      blockHeight
-    )
+    return this.delegate.getTransactionMerkle(transactionHash, blockHeight)
   }
 
   broadcast(transaction: BitcoinRawTx): Promise<void> {

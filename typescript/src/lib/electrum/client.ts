@@ -220,7 +220,9 @@ export class ElectrumClient implements BitcoinClient {
                 await electrum.server_ping()
                 return
               } catch (error) {
-                throw new Error(`Electrum server connection failure: [${error}]`)
+                throw new Error(
+                  `Electrum server connection failure: [${error}]`
+                )
               }
             })(),
             this.connectionTimeout,
@@ -280,6 +282,8 @@ export class ElectrumClient implements BitcoinClient {
   /**
    * Resolves Bitcoin network from an existing Electrum connection.
    * Use this when already inside withElectrum to avoid nested connections.
+   * @param electrum Connected Electrum client.
+   * @returns Promise resolving to the Bitcoin network.
    */
   private async getNetworkFromElectrum(
     electrum: Electrum

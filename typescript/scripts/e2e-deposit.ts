@@ -44,8 +44,9 @@ function serializeReceipt(receipt: DepositReceipt): object {
 }
 
 function deserializeReceipt(obj: any): DepositReceipt {
-  const depositorHex =
-    obj.depositor.startsWith("0x") ? obj.depositor : "0x" + obj.depositor
+  const depositorHex = obj.depositor.startsWith("0x")
+    ? obj.depositor
+    : "0x" + obj.depositor
   return {
     depositor: EthereumAddress.from(depositorHex),
     blindingFactor: Hex.from(obj.blindingFactor),
@@ -129,7 +130,10 @@ async function main() {
     fs.writeFileSync(
       RECEIPT_FILE,
       JSON.stringify(
-        { receipt: serializeReceipt(receipt), btcRecoveryAddress: bitcoinRecoveryAddress },
+        {
+          receipt: serializeReceipt(receipt),
+          btcRecoveryAddress: bitcoinRecoveryAddress,
+        },
         null,
         2
       )

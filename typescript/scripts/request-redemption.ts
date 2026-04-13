@@ -162,7 +162,9 @@ async function main() {
       process.exit(1)
     }
     amount = satToTokenAmount(balanceSat)
-    console.log(`Redeeming max: ${balanceSat.toString()} sat (token units aligned)`)
+    console.log(
+      `Redeeming max: ${balanceSat.toString()} sat (token units aligned)`
+    )
   } else {
     amount = satToTokenAmount(BigNumber.from(amountSatEnv))
   }
@@ -188,7 +190,10 @@ async function main() {
 
   const bridgeId = await tbtc.tbtcContracts.bridge.getChainIdentifier()
   const bridgeAddress = `0x${bridgeId.identifierHex}`
-  const dustThresholdSat = await getRedemptionDustThreshold(wallet, bridgeAddress)
+  const dustThresholdSat = await getRedemptionDustThreshold(
+    wallet,
+    bridgeAddress
+  )
   const redemptionSat = amountToSatoshi(amount)
   console.log(
     `Bridge redemption dust threshold (min redemption): ${dustThresholdSat.toString()} sat`
