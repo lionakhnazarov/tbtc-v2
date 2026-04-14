@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/random-beacon/export/deploy/04_deploy_random_beacon.js
  *
@@ -89,8 +88,8 @@ const func = async function (hre) {
     throw new Error(
       `BeaconSortitionPool owner is ${poolOwner}, deployer is ${deployer}. ` +
         `Cannot transfer pool to RandomBeacon at ${RandomBeacon.address}. ` +
-        `The pool was likely already transferred to an older RandomBeacon from a previous deploy. ` +
-        `Run a full redeploy with --nuke so keep-core Phase D deploys a fresh BeaconSortitionPool, then run Phase H again.`
+        "The pool was likely already transferred to an older RandomBeacon from a previous deploy. " +
+        "Run a full redeploy with --nuke so keep-core Phase D deploys a fresh BeaconSortitionPool, then run Phase H again."
     )
   }
 

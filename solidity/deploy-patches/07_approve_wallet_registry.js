@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/ecdsa/export/deploy/07_approve_wallet_registry.js
  *
@@ -19,9 +18,7 @@ const func = async function (hre) {
   )
   const raw = Array.isArray(info) ? info[0] : info.status
   const status =
-    raw && typeof raw.toNumber === "function"
-      ? raw.toNumber()
-      : Number(raw)
+    raw && typeof raw.toNumber === "function" ? raw.toNumber() : Number(raw)
 
   if (status === 1) {
     log(

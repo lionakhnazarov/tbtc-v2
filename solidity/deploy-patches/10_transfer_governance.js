@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/ecdsa/export/deploy/10_transfer_governance.js
  *
@@ -11,8 +10,14 @@ const func = async function (hre) {
   const { deployer, governance } = await getNamedAccounts()
   const { execute, read, log } = deployments
 
-  const WalletRegistryGovernance = await deployments.get("WalletRegistryGovernance")
-  const currentRegistryGovernance = await read("WalletRegistry", {}, "governance")
+  const WalletRegistryGovernance = await deployments.get(
+    "WalletRegistryGovernance"
+  )
+  const currentRegistryGovernance = await read(
+    "WalletRegistry",
+    {},
+    "governance"
+  )
 
   if (
     helpers.address.equal(

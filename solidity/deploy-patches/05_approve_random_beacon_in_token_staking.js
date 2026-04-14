@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/random-beacon/export/deploy/05_approve_random_beacon_in_token_staking.js
  *
@@ -19,9 +18,7 @@ const func = async function (hre) {
   )
   const raw = Array.isArray(info) ? info[0] : info.status
   const status =
-    raw && typeof raw.toNumber === "function"
-      ? raw.toNumber()
-      : Number(raw)
+    raw && typeof raw.toNumber === "function" ? raw.toNumber() : Number(raw)
 
   // ApplicationStatus: NOT_APPROVED=0, APPROVED=1, PAUSED=2, DISABLED=3
   if (status === 1) {

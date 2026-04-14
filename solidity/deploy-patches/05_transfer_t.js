@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @threshold-network/solidity-contracts/export/deploy/05_transfer_t.js
  *
@@ -8,6 +7,7 @@
  * Idempotent: skip if the vending machine already holds the target amount; otherwise transfer only
  * the shortfall when the deployer can cover it.
  */
+/* eslint-disable no-restricted-syntax, no-await-in-loop, no-continue */
 const func = async function (hre) {
   const { getNamedAccounts, deployments, helpers, ethers } = hre
   const { deployer } = await getNamedAccounts()
@@ -59,7 +59,9 @@ const func = async function (hre) {
       needed
     )
     log(
-      `transferred ${from1e18(needed)} T to the VendingMachine for ${tokenSymbol}`
+      `transferred ${from1e18(
+        needed
+      )} T to the VendingMachine for ${tokenSymbol}`
     )
   }
 }

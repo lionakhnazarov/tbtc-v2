@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/ecdsa/export/deploy/13_authorize_in_random_beacon.js
  *

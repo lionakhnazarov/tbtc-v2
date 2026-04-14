@@ -2,9 +2,6 @@ import { HardhatUserConfig } from "hardhat/config"
 import path from "path"
 import { config as loadEnv } from "dotenv"
 
-// Load .env from tbtc-v2/ (parent of solidity/) so CHAIN_API_URL etc. are available
-loadEnv({ path: path.join(__dirname, "..", ".env") })
-
 import "./tasks"
 
 import "@keep-network/hardhat-helpers"
@@ -18,6 +15,9 @@ import "@tenderly/hardhat-tenderly"
 import "@typechain/hardhat"
 import "hardhat-dependency-compiler"
 import "solidity-docgen"
+
+// Load .env from tbtc-v2/ (parent of solidity/) so CHAIN_API_URL etc. are available
+loadEnv({ path: path.join(__dirname, "..", ".env") })
 
 const ecdsaSolidityCompilerConfig = {
   version: "0.8.17",

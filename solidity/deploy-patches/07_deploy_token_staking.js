@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @threshold-network/solidity-contracts/export/deploy/07_deploy_token_staking.js
  *
@@ -8,6 +7,8 @@
  *
  * Apply: scripts/apply-solidity-contracts-export-deploy-patch.sh (also run from full-redeploy-sepolia-stack.sh).
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require("fs")
 const hardhat = require("hardhat")
 
 const func = async function (hre) {
@@ -18,12 +19,15 @@ const func = async function (hre) {
   const T = await deployments.get("T")
   const VendingMachineNuCypher = await deployments.get("VendingMachineNuCypher")
 
-  const tokenStakingConstructorArgs = [T.address, VendingMachineNuCypher.address]
+  const tokenStakingConstructorArgs = [
+    T.address,
+    VendingMachineNuCypher.address,
+  ]
   const tokenStakingInitializerArgs = []
 
   let tokenStakingAddress
 
-  if (hre.network.name == "mainnet") {
+  if (hre.network.name === "mainnet") {
     const TokenStaking = await hardhat.ethers.getContractFactory("TokenStaking")
 
     const tokenStaking = await hardhat.upgrades.deployProxy(
@@ -45,18 +49,17 @@ const func = async function (hre) {
       address: tokenStakingAddress,
       abi: JSON.parse(jsonAbi),
     }
-    const fs = require("fs")
     fs.writeFileSync(
       "TokenStaking.json",
       JSON.stringify(tokenStakingDeployment, null, 2),
       "utf8",
-      function (err) {
+      (err) => {
         if (err) {
           console.log(err)
         }
       }
     )
-    log(`Saved TokenStaking address and ABI in TokenStaking.json`)
+    log("Saved TokenStaking address and ABI in TokenStaking.json")
   } else {
     const TokenStaking = await deployments.deploy("TokenStaking", {
       from: deployer,

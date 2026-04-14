@@ -1839,14 +1839,14 @@ describe("Bridge - Fraud", () => {
             })
 
             it("should return the deposited ether to the challenger", async () => {
-                    await expect(tx).to.changeEtherBalance(
-                      etherBalanceAccount(bridge.address, ethers.provider),
-                      fraudChallengeDepositAmount.mul(-1)
-                    )
-                    await expect(tx).to.changeEtherBalance(
-                      thirdParty,
-                      fraudChallengeDepositAmount
-                    )
+              await expect(tx).to.changeEtherBalance(
+                etherBalanceAccount(bridge.address, ethers.provider),
+                fraudChallengeDepositAmount.mul(-1)
+              )
+              await expect(tx).to.changeEtherBalance(
+                thirdParty,
+                fraudChallengeDepositAmount
+              )
             })
 
             it("should emit FraudChallengeDefeatTimedOut event", async () => {

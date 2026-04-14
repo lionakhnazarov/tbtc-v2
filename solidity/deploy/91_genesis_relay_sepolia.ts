@@ -32,7 +32,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   await execute(
     "LightRelay",
-    { from: (await hre.getNamedAccounts()).deployer, log: true, waitConfirmations: 1 },
+    {
+      from: (await hre.getNamedAccounts()).deployer,
+      log: true,
+      waitConfirmations: 1,
+    },
     "genesis",
     genesisHeader,
     genesisHeight,

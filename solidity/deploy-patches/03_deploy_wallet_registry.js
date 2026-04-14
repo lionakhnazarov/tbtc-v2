@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/ecdsa/export/deploy/03_deploy_wallet_registry.js
  *
@@ -31,8 +30,9 @@ const func = async function (hre) {
 
   const signer = await ethers.getSigner(deployer)
 
-  const [walletRegistry, proxyDeployment] =
-    await helpers.upgrades.deployProxy("WalletRegistry", {
+  const [walletRegistry, proxyDeployment] = await helpers.upgrades.deployProxy(
+    "WalletRegistry",
+    {
       contractName:
         process.env.TEST_USE_STUBS_ECDSA === "true"
           ? "WalletRegistryStub"
@@ -53,7 +53,8 @@ const func = async function (hre) {
         unsafeAllow: ["external-library-linking"],
         kind: "transparent",
       },
-    })
+    }
+  )
 
   await helpers.ownable.transferOwnership(
     "EcdsaSortitionPool",

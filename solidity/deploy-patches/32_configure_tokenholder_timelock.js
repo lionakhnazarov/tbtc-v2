@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @threshold-network/solidity-contracts/export/deploy/32_configure_tokenholder_timelock.js
  *
@@ -14,7 +13,10 @@ const func = async function (hre) {
 
   const TokenholderGovernor = await deployments.get("TokenholderGovernor")
   const PROPOSER_ROLE = await read("TokenholderTimelock", "PROPOSER_ROLE")
-  const TIMELOCK_ADMIN_ROLE = await read("TokenholderTimelock", "TIMELOCK_ADMIN_ROLE")
+  const TIMELOCK_ADMIN_ROLE = await read(
+    "TokenholderTimelock",
+    "TIMELOCK_ADMIN_ROLE"
+  )
 
   const governorHasProposer = await read(
     "TokenholderTimelock",
@@ -33,9 +35,7 @@ const func = async function (hre) {
     )
     log(`Granted PROPOSER_ROLE to ${TokenholderGovernor.address}`)
   } else {
-    log(
-      `TokenholderGovernor already has PROPOSER_ROLE; skipping grantRole`
-    )
+    log("TokenholderGovernor already has PROPOSER_ROLE; skipping grantRole")
   }
 
   const deployerHasTimelockAdmin = await read(
@@ -55,7 +55,7 @@ const func = async function (hre) {
     )
     log(`Address ${deployer} renounced TIMELOCK_ADMIN_ROLE`)
   } else {
-    log(`Deployer no longer has TIMELOCK_ADMIN_ROLE; skipping renounceRole`)
+    log("Deployer no longer has TIMELOCK_ADMIN_ROLE; skipping renounceRole")
   }
 }
 

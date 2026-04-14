@@ -1,4 +1,3 @@
-"use strict"
 /**
  * Patched copy of @keep-network/random-beacon/export/deploy/08_transfer_governance.js
  *
