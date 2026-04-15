@@ -24,11 +24,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-          cache: "yarn"
           cache-dependency-path: solidity/yarn.lock
 
       - name: Configure git protocol
         run: git config --global url."https://".insteadOf git://
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

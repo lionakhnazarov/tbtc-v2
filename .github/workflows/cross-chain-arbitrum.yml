@@ -44,13 +44,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "yarn"
           cache-dependency-path: cross-chain/arbitrum/yarn.lock
 
       # A workaround for transitive dependencies that use the obsolete git://
       # prefix instead of the recommended https://
       - name: Configure git to not use unauthenticated protocol
         run: git config --global url."https://".insteadOf git://
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install
@@ -82,13 +84,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "yarn"
           cache-dependency-path: cross-chain/arbitrum/yarn.lock
 
       # A workaround for transitive dependencies that use the obsolete git://
       # prefix instead of the recommended https://
       - name: Configure git to not use unauthenticated protocol
         run: git config --global url."https://".insteadOf git://
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -115,13 +119,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "yarn"
           cache-dependency-path: cross-chain/arbitrum/yarn.lock
 
       # A workaround for transitive dependencies that use the obsolete git://
       # prefix instead of the recommended https://
       - name: Configure git to not use unauthenticated protocol
         run: git config --global url."https://".insteadOf git://
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install
@@ -151,7 +157,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "yarn"
           cache-dependency-path: cross-chain/arbitrum/yarn.lock
 
       - uses: actions/setup-python@v4
@@ -175,6 +180,9 @@ jobs:
       # prefix instead of the recommended https://
       - name: Configure git to not use unauthenticated protocol
         run: git config --global url."https://".insteadOf git://
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install
