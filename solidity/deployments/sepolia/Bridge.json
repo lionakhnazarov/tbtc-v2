@@ -1,5 +1,5 @@
 {
-  "address": "0xd48ae449332A75bc8A28678345d82379BF767656",
+  "address": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
   "abi": [
     {
       "inputs": [],
@@ -96,6 +96,25 @@
         }
       ],
       "name": "DepositRevealed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "depositKey",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newVault",
+          "type": "address"
+        }
+      ],
+      "name": "DepositVaultFixed",
       "type": "event"
     },
     {
@@ -478,6 +497,38 @@
       "anonymous": false,
       "inputs": [],
       "name": "NewWalletRequested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldRebateStaking",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newRebateStaking",
+          "type": "address"
+        }
+      ],
+      "name": "RebateStakingRepaired",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "rebateStaking",
+          "type": "address"
+        }
+      ],
+      "name": "RebateStakingSet",
       "type": "event"
     },
     {
@@ -1082,6 +1133,19 @@
     },
     {
       "inputs": [],
+      "name": "getRebateStaking",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "getRedemptionWatchtower",
       "outputs": [
         {
@@ -1140,6 +1204,26 @@
         }
       ],
       "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initializeV2_FixVaultZeroDeposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newRebateStaking",
+          "type": "address"
+        }
+      ],
+      "name": "initializeV5_RepairRebateStaking",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -1813,6 +1897,19 @@
         }
       ],
       "name": "revealDepositWithExtraData",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "rebateStaking",
+          "type": "address"
+        }
+      ],
+      "name": "setRebateStaking",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -2759,81 +2856,81 @@
       "type": "function"
     }
   ],
-  "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
+  "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
   "receipt": {
     "to": null,
-    "from": "0xf6287aa4823976fA3366e33a3F005a074062E41c",
-    "contractAddress": "0xd48ae449332A75bc8A28678345d82379BF767656",
-    "transactionIndex": 0,
-    "gasUsed": "972366",
-    "logsBloom": "0x00000000000000000000000000000000401000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000800000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000080000000000400800000000000000000000000000c00000400000000000000000000000000000000000020000020000000000000000000040000000000000400000000000000000000000000000000000000000800000000000000000000200000000000000000000000",
-    "blockHash": "0x65c1f9c4f4c080611cdd7efc609d47ce5a010550256aa053328967910df3bc59",
-    "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
+    "from": "0x8e0A006239a8454962396180B4F33dB9A54c33DB",
+    "contractAddress": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
+    "transactionIndex": 1,
+    "gasUsed": "972321",
+    "logsBloom": "0x00000000000000000000004000000000400000004000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000800000000000000000000000000000000000000000000000000000000800000000000000000000000000000000010000000000000000000000000000000000080000000000000800000000000000000002020000000000400000000000000000000000000000000000000000020000000000000000000040000000000000400000000000000000000000000000000000000000800000000000000000000000000000000000000000000",
+    "blockHash": "0x6167d00a9cf2d5622a54954623eeb044ca044c8a882ab703d00b27251404b4cc",
+    "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
     "logs": [
       {
-        "transactionIndex": 0,
-        "blockNumber": 10581139,
-        "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
-        "address": "0xd48ae449332A75bc8A28678345d82379BF767656",
+        "transactionIndex": 1,
+        "blockNumber": 10723422,
+        "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
+        "address": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
         "topics": [
           "0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b",
-          "0x000000000000000000000000abb2f28de6687232e935e338ce514539dd2974a2"
+          "0x0000000000000000000000002c3109b5ca04325de57b2af80e4d1d3860aa3c7d"
         ],
         "data": "0x",
-        "logIndex": 0,
-        "blockHash": "0x65c1f9c4f4c080611cdd7efc609d47ce5a010550256aa053328967910df3bc59"
+        "logIndex": 2,
+        "blockHash": "0x6167d00a9cf2d5622a54954623eeb044ca044c8a882ab703d00b27251404b4cc"
       },
       {
-        "transactionIndex": 0,
-        "blockNumber": 10581139,
-        "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
-        "address": "0xd48ae449332A75bc8A28678345d82379BF767656",
+        "transactionIndex": 1,
+        "blockNumber": 10723422,
+        "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
+        "address": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
         "topics": [
           "0x5f56bee8cffbe9a78652a74a60705edede02af10b0bbb888ca44b79a0d42ce80"
         ],
-        "data": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f6287aa4823976fa3366e33a3f005a074062e41c",
-        "logIndex": 1,
-        "blockHash": "0x65c1f9c4f4c080611cdd7efc609d47ce5a010550256aa053328967910df3bc59"
+        "data": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008e0a006239a8454962396180b4f33db9a54c33db",
+        "logIndex": 3,
+        "blockHash": "0x6167d00a9cf2d5622a54954623eeb044ca044c8a882ab703d00b27251404b4cc"
       },
       {
-        "transactionIndex": 0,
-        "blockNumber": 10581139,
-        "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
-        "address": "0xd48ae449332A75bc8A28678345d82379BF767656",
+        "transactionIndex": 1,
+        "blockNumber": 10723422,
+        "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
+        "address": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
         "topics": [
           "0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498"
         ],
         "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
-        "logIndex": 2,
-        "blockHash": "0x65c1f9c4f4c080611cdd7efc609d47ce5a010550256aa053328967910df3bc59"
+        "logIndex": 4,
+        "blockHash": "0x6167d00a9cf2d5622a54954623eeb044ca044c8a882ab703d00b27251404b4cc"
       },
       {
-        "transactionIndex": 0,
-        "blockNumber": 10581139,
-        "transactionHash": "0xd956d06a7b453321b324a2f0c968032526e1e94ab3e1ee7ed48e7cff4ed06eb0",
-        "address": "0xd48ae449332A75bc8A28678345d82379BF767656",
+        "transactionIndex": 1,
+        "blockNumber": 10723422,
+        "transactionHash": "0x6213fa9b7e6c62ed7c12fcaff0efcc95daf7e1b34d2e1c74ff6ac9bf87c01442",
+        "address": "0xBBa61305DC2281a8CC89cc18Bed6D3241CCCe32e",
         "topics": [
           "0x7e644d79422f17c01e4894b5f4f588d331ebfa28653d42ae832dc59e38c9798f"
         ],
-        "data": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e08289c8e1350a3461cb92770c4cd6e8810eeec7",
-        "logIndex": 3,
-        "blockHash": "0x65c1f9c4f4c080611cdd7efc609d47ce5a010550256aa053328967910df3bc59"
+        "data": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001d4f2768ecd63e8dc72a2eda333ae667b980864",
+        "logIndex": 5,
+        "blockHash": "0x6167d00a9cf2d5622a54954623eeb044ca044c8a882ab703d00b27251404b4cc"
       }
     ],
-    "blockNumber": 10581139,
-    "cumulativeGasUsed": "972366",
+    "blockNumber": 10723422,
+    "cumulativeGasUsed": "1090871",
     "status": 1,
     "byzantium": true
   },
   "numDeployments": 1,
   "libraries": {
-    "Deposit": "0xe3B67F191e27632208F967Fa459C83357883C8b8",
-    "DepositSweep": "0xe611c265A9c305429622b045D6026fEb8AcB1Cac",
-    "Redemption": "0x488e47f5af11007e25FFB59ba714e22144Edd5B9",
-    "Wallets": "0x48c297b224f003e3F505d1013ae402B00f34FDC7",
-    "Fraud": "0xbD8238eB4146ABbAb9fA8886390fe00bd40c6243",
-    "MovingFunds": "0xaDaFF88e35CaE0295bF1041b6DAE760Ae18Bf8D2"
+    "Deposit": "0x79a621B121943feb8e4b35c711Ce9Fd2385Cf79f",
+    "DepositSweep": "0xE33Ed1405a4aAF66b884Ed6a3789fb16aC85a274",
+    "Redemption": "0x741Cc224Acd2eB54dFC68a191617353e22EdB0cE",
+    "Wallets": "0x93c3Ed18fB6E0cb6634fA312DB11EF35b385A79D",
+    "Fraud": "0x45de60DA068dd6C707BC45592Dc8950AB193f580",
+    "MovingFunds": "0x0A6598181f426F49e92e884eCe147Ececb68f1f1"
   },
-  "implementation": "0xaBB2f28de6687232e935E338ce514539DD2974a2",
+  "implementation": "0x2c3109B5cA04325DE57B2AF80E4D1D3860aa3c7D",
   "devdoc": "Contract deployed as upgradable proxy"
 }
