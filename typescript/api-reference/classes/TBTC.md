@@ -413,9 +413,9 @@ ___
 
 ▸ **initializeSepolia**(`ethereumSignerOrProvider`, `crossChainSupport?`): `Promise`\<[`TBTC`](TBTC.md)\>
 
-Initializes the tBTC v2 SDK entrypoint for Ethereum Sepolia and Bitcoin testnet.
+Initializes the tBTC v2 SDK entrypoint for Ethereum Sepolia and Bitcoin testnet4.
 The initialized instance uses default Electrum servers to interact
-with Bitcoin testnet
+with Bitcoin testnet4
 
 #### Parameters
 
