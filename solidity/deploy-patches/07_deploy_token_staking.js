@@ -7,8 +7,6 @@
  *
  * Apply: scripts/apply-solidity-contracts-export-deploy-patch.sh (also run from full-redeploy-sepolia-stack.sh).
  */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require("fs")
 const hardhat = require("hardhat")
 
 const func = async function (hre) {
@@ -49,6 +47,7 @@ const func = async function (hre) {
       address: tokenStakingAddress,
       abi: JSON.parse(jsonAbi),
     }
+    const fs = require("fs")
     fs.writeFileSync(
       "TokenStaking.json",
       JSON.stringify(tokenStakingDeployment, null, 2),

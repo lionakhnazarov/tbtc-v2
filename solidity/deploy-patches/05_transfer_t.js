@@ -7,7 +7,6 @@
  * Idempotent: skip if the vending machine already holds the target amount; otherwise transfer only
  * the shortfall when the deployer can cover it.
  */
-/* eslint-disable no-restricted-syntax, no-await-in-loop, no-continue */
 const func = async function (hre) {
   const { getNamedAccounts, deployments, helpers, ethers } = hre
   const { deployer } = await getNamedAccounts()

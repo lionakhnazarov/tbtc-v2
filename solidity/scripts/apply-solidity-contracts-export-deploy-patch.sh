@@ -11,7 +11,10 @@ apply_one() {
     echo "ERROR: missing $PATCH_SRC"
     exit 1
   fi
-  mkdir -p "$(dirname "$TARGET")"
+  if [ ! -f "$TARGET" ]; then
+    echo "ERROR: $TARGET not found — run yarn install in tbtc-v2/solidity"
+    exit 1
+  fi
   cp "$PATCH_SRC" "$TARGET"
   echo "Applied deploy patch: $TARGET"
 }
@@ -47,6 +50,10 @@ apply_one \
 apply_one \
   "$SOLIDITY_ROOT/deploy-patches/07_approve_wallet_registry.js" \
   "$SOLIDITY_ROOT/node_modules/@keep-network/ecdsa/export/deploy/07_approve_wallet_registry.js"
+
+apply_one \
+  "$SOLIDITY_ROOT/deploy-patches/09_deploy_wallet_registry_governance.js" \
+  "$SOLIDITY_ROOT/node_modules/@keep-network/ecdsa/export/deploy/09_deploy_wallet_registry_governance.js"
 
 apply_one \
   "$SOLIDITY_ROOT/deploy-patches/10_transfer_governance.js" \
